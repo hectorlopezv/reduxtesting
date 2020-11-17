@@ -18,7 +18,7 @@ import * as serviceWorker from './serviceWorker';
 //</React.StrictMode>,
 //document.getElementById('root')
 
-const store = createStore(storeTestReducer);
+const store = createStore(storeTestReducer);//Store Object - Store need a Reducer!
 
 
 

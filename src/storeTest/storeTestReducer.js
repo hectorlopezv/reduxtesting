@@ -9,6 +9,31 @@ const storeTestReducer = (state=initialState, action) => {
             counter:  state.counter + 1
         }
     }
+
+    if(action.type === 'DECREMENT'){
+        return {
+            ...state,
+            counter: state.counter - 1
+        }
+    }
+
+
+    if(action.type === 'INCREMENT5'){
+        return {
+            ...state,
+            counter: state.counter + 5
+        }
+    }
+
+
+    if(action.type === 'DECREMENT5'){
+        return {
+            ...state,
+            counter: state.counter - 5
+        }
+    }
+
+
     return state;
 }
  
