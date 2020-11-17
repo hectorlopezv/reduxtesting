@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
+
+//HOW TO SUBSCRIBE THE COMPONENT
+
 
 class Counter extends Component {
     state = {
@@ -22,13 +26,15 @@ class Counter extends Component {
             case 'sub':
                 this.setState( ( prevState ) => { return { counter: prevState.counter - value } } )
                 break;
+                default:
+                    break;
         }
     }
 
     render () {
         return (
             <div>
-                <CounterOutput value={this.state.counter} />
+                <CounterOutput value={this.props.ctr} />
                 <CounterControl label="Increment" clicked={() => this.counterChangedHandler( 'inc' )} />
                 <CounterControl label="Decrement" clicked={() => this.counterChangedHandler( 'dec' )}  />
                 <CounterControl label="Add 5" clicked={() => this.counterChangedHandler( 'add', 5 )}  />
@@ -38,4 +44,11 @@ class Counter extends Component {
     }
 }
 
-export default Counter;
+//actions to dispatch
+
+const mapStateToProps = (state) => { //how state to props
+    return {//map we return
+        ctr: state.counter //mapping the state objetcs to the state that are going to be sent o readed
+    };
+} 
+export default connect(mapStateToProps)(Counter);
