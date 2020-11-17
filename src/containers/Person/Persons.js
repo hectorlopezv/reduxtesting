@@ -41,8 +41,8 @@ const mapStateToProps = (state) => { //how state to props
 
 const mapDispatchToProps = dispatch => {//what function to dispatch on actions 
     return {//props of function to be executed on dispatch of actions
-        onIncrementCounter: () => dispatch({
-            type: ADDPERSON
+        onIncrementCounter: (name, age) => dispatch({
+            type: ADDPERSON, name: name, age: age
         }),
 
        onDeleteResult: (id) => dispatch({

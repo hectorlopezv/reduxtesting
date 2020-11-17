@@ -4,10 +4,11 @@ const initialState ={
 }
 const storeReducerAsign = (state = initialState, action) => {
     if(action.type === 'ADDPERSON'){
+        console.log(action)
         const newPerson = {
             id: Math.random(), // not really unique but good enough here!
-            name: 'Max',
-            age: Math.floor( Math.random() * 40 )
+            name: action.name,
+            age: action.age
         }
 
         return {
