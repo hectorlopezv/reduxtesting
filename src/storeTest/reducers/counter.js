@@ -2,7 +2,8 @@ const initialState = {
     counter: 0
 }
 
-const storeTestReducer = (state=initialState, action) => {
+const counterReducer = (state=initialState, action) => {
+    //me Prefer multiple if statmenet instead of one Switch Statement
     if(action.type === 'INCREMENT'){
         return {
             ...state,
@@ -34,7 +35,8 @@ const storeTestReducer = (state=initialState, action) => {
     }
 
 
+
     return state;
 }
  
-export default storeTestReducer;
+export default counterReducer;
