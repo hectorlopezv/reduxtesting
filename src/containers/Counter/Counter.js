@@ -67,14 +67,14 @@ const mapDispatchToProps = dispatch => {//what function to dispatch on actions
 
         onIcrementCounter5 : () => dispatch({
             type: 'INCREMENT5',
-            paylod: {
+            payload: {
                 value: 5
             }
         }),
 
         onDecrementCounter5 : () => dispatch({
             type: 'DECREMENT5',
-            paylod: {
+            payload: {
                 value: 5
             }
         })

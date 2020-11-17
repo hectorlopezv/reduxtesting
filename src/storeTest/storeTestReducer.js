@@ -21,7 +21,7 @@ const storeTestReducer = (state=initialState, action) => {
     if(action.type === 'INCREMENT5'){
         return {
             ...state,
-            counter: state.counter + 5
+            counter: state.counter + action.payload.value
         }
     }
 
@@ -29,7 +29,7 @@ const storeTestReducer = (state=initialState, action) => {
     if(action.type === 'DECREMENT5'){
         return {
             ...state,
-            counter: state.counter - 5
+            counter: state.counter - action.payload.value
         }
     }
 
