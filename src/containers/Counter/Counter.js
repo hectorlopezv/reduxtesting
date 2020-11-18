@@ -4,13 +4,12 @@ import {connect} from 'react-redux';
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
 
-import {
-    INCREMENET,
-    INCREMENT5, 
-    DECREMENT, 
-    DECREMENT5, 
-    STORE_RESULT, 
-    DELETE_RESULT} from '../../storeTest/actionTest';
+
+//import actionCreators
+import * as actionCreators from '../../storeTest/actions/index';
+
+
+
 
 //HOW TO SUBSCRIBE THE COMPONENT
 
@@ -18,24 +17,7 @@ import {
 class Counter extends Component {
 
 
-    counterChangedHandler = ( action, value ) => {
-        switch ( action ) {
-            case 'inc':
-                this.setState( ( prevState ) => { return { counter: prevState.counter + 1 } } )
-                break;
-            case 'dec':
-                this.setState( ( prevState ) => { return { counter: prevState.counter - 1 } } )
-                break;
-            case 'add':
-                this.setState( ( prevState ) => { return { counter: prevState.counter + value } } )
-                break;
-            case 'sub':
-                this.setState( ( prevState ) => { return { counter: prevState.counter - value } } )
-                break;
-                default:
-                    break;
-        }
-    }
+  
 
     render () {
         return (
@@ -72,42 +54,17 @@ const mapStateToProps = (state) => { //how state to props
 
 const mapDispatchToProps = dispatch => {//what function to dispatch on actions 
     return {//props of function to be executed on dispatch of actions
-        onIncrementCounter: () => dispatch({
-            type: INCREMENET
-        }),
+        onIncrementCounter: () => dispatch(actionCreators.increment()),
 
-        onDecrementCounter: () => dispatch({
-            type: DECREMENT,
+        onDecrementCounter: () => dispatch(actionCreators.decrement()),
 
-        }),
+        onIcrementCounter5 : () => dispatch(actionCreators.increment5(5)),
 
-        onIcrementCounter5 : () => dispatch({
-            type: INCREMENT5,
-            payload: {
-                value: 5
-            }
-        }),
+        onDecrementCounter5 : () => dispatch(actionCreators.decrement5(5)),
 
-        onDecrementCounter5 : () => dispatch({
-            type: DECREMENT5,
-            payload: {
-                value: 5
-            }
-        }),
-
-        onStoreResult: (result) => dispatch({
-            type: STORE_RESULT,
-            payload: {
-                result: result
-            }
-        }),
+        onStoreResult: (result) => dispatch(actionCreators.store_result(result)),
         
-        onDeleteResult: (id) => dispatch({
-            type: DELETE_RESULT,
-            payload: {
-                resultElId: id
-            }
-        })
+        onDeleteResult: (id) => dispatch(actionCreators.delete_result(id))
 
     }
 }

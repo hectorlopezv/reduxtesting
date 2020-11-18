@@ -1,18 +1,22 @@
+import * as actionTypes from '../actions/actionsTypes';
+
 const initialState = {
     results: []
 }
 //this reducer has only has acces to the defined state in here
 const resultReducer = (state=initialState, action) => {
     //me Prefer multiple if statmenet instead of one Switch Statement
-
-    if(action.type === 'STORE_RESULT'){
+    console.log(action);
+    console.log(state);
+    if(action.type === actionTypes.STORE_RESULT){
+        //Change data if you want
         return {
             ...state,
             results: state.results.concat({value:action.payload.result, id: new Date()})
         }
     }
 
-    if(action.type === 'DELETE_RESULT'){
+    if(action.type === actionTypes.DELETE_RESULT){
         //COPY OF ARRRAY - if objects are items if not deep copy
         // if we plan to remove item its ok because we dont modify
         //the inner items of the objects
