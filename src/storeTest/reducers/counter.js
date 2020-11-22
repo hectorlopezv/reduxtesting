@@ -1,4 +1,8 @@
-import * as actionTypes from '../actions/actionsTypes';
+import {
+    INCREMENT,
+    DECREMENT,
+    INCREMENT5,
+    DECREMENT5} from '../actions/actionsTypes';
 
 const initialState = {
     counter: 0
@@ -6,14 +10,14 @@ const initialState = {
 
 const counterReducer = (state=initialState, action) => {
     //me Prefer multiple if statmenet instead of one Switch Statement
-    if(action.type === actionTypes.INCREMENET){
+    if(action.type === INCREMENT){
         return {
             ...state,
             counter:  state.counter + 1
         }
     }
 
-    if(action.type === actionTypes.DECREMENT){
+    if(action.type === DECREMENT){
         return {
             ...state,
             counter: state.counter - 1
@@ -21,7 +25,7 @@ const counterReducer = (state=initialState, action) => {
     }
 
 
-    if(action.type === actionTypes.INCREMENT5){
+    if(action.type === INCREMENT5){
         return {
             ...state,
             counter: state.counter + action.payload.value
@@ -29,14 +33,12 @@ const counterReducer = (state=initialState, action) => {
     }
 
 
-    if(action.type === actionTypes.DECREMENT5){
+    if(action.type === DECREMENT5){
         return {
             ...state,
             counter: state.counter - action.payload.value
         }
     }
-
-
 
     return state;
 }

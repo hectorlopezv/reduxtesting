@@ -5,8 +5,14 @@ import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
 
 
-//import actionCreators
-import * as actionCreators from '../../storeTest/actions/index';
+
+import {
+    increment, 
+    increment5, 
+    decrement, 
+    decrement5,
+    store_result,
+    delete_result} from '../../storeTest/actions/actionCreators';
 
 
 
@@ -54,17 +60,17 @@ const mapStateToProps = (state) => { //how state to props
 
 const mapDispatchToProps = dispatch => {//what function to dispatch on actions 
     return {//props of function to be executed on dispatch of actions
-        onIncrementCounter: () => dispatch(actionCreators.increment()),
+       onIncrementCounter: () => dispatch(increment()),
 
-        onDecrementCounter: () => dispatch(actionCreators.decrement()),
+     onDecrementCounter: () => dispatch(decrement()),
 
-        onIcrementCounter5 : () => dispatch(actionCreators.increment5(5)),
+       onIcrementCounter5 : () => dispatch(increment5(5)),
 
-        onDecrementCounter5 : () => dispatch(actionCreators.decrement5(5)),
+       onDecrementCounter5 : () => dispatch(decrement5(5)),
 
-        onStoreResult: (result) => dispatch(actionCreators.store_result(result)),
+       onStoreResult: (result) => dispatch(store_result(result)),
         
-        onDeleteResult: (id) => dispatch(actionCreators.delete_result(id))
+        onDeleteResult: (id) => dispatch(delete_result(id))
 
     }
 }

@@ -18,30 +18,20 @@ const rootReducer = combineReducers({
   res: resultReducer  
 });
 
-const loogs = state => {
+const logger =  store => {
   return next => {
-    return action => {//code to execute before the action is executed
-      console.log('[MiddleWare] Dispatching', action);
-      const result = next(action);
-      console.log('[MiddleWare] next state', store.getState());
-      return result;
-    }
+      return action => {//midleWare
+        console.log('[MiddleWare] Dispatching', action);
+        const result = next(action);//let action to conitnue to the reducer
+        console.log('[MiddleWare] next state', store.getState());
+        return result;
+      }
   }
-}
+};
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-//<React.StrictMode>
-//<Provider store={store}>
- // <App />
-//</Provider>
-//</React.StrictMode>,
-//document.getElementById('root')
-
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(loogs, thunk ))  );//Store Object - Store need a Reducer!
-
-
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger, thunk)) );//Store Object - Store need a Reducer!
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,4 +1,6 @@
-import * as actionTypes from '../actions/actionsTypes';
+import {
+    STORE_RESULT,
+    DELETE_RESULT} from '../actions/actionsTypes';
 
 const initialState = {
     results: []
@@ -8,7 +10,7 @@ const resultReducer = (state=initialState, action) => {
     //me Prefer multiple if statmenet instead of one Switch Statement
     console.log(action);
     console.log(state);
-    if(action.type === actionTypes.STORE_RESULT){
+    if(action.type === STORE_RESULT){
         //Change data if you want
         return {
             ...state,
@@ -16,7 +18,7 @@ const resultReducer = (state=initialState, action) => {
         }
     }
 
-    if(action.type === actionTypes.DELETE_RESULT){
+    if(action.type === DELETE_RESULT){
         //COPY OF ARRRAY - if objects are items if not deep copy
         // if we plan to remove item its ok because we dont modify
         //the inner items of the objects
